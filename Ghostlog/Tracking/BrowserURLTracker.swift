@@ -3,27 +3,31 @@ import Foundation
 
 final class BrowserURLTracker {
 
-    // Chromium-based browsers that support AppleScript URL access
+    // Lowercase for case-insensitive matching (macOS app names vary: "zen", "Google Chrome", etc.)
     private let chromiumApps: Set<String> = [
-        "Google Chrome", "Microsoft Edge", "Brave Browser", "Arc",
-        "Chromium", "Vivaldi", "Opera", "Sigmaos",
+        "google chrome", "microsoft edge", "brave browser", "arc",
+        "chromium", "vivaldi", "opera", "sigmaos",
+    ]
+
+    private let safariApps: Set<String> = [
+        "safari", "safari technology preview",
     ]
 
     // Firefox-based browsers (no AppleScript URL support — use Accessibility API)
     private let firefoxApps: Set<String> = [
-        "Firefox", "Firefox Developer Edition", "Firefox Nightly",
-        "Zen", "Zen Browser",
+        "firefox", "firefox developer edition", "firefox nightly",
+        "zen", "zen browser",
     ]
 
     func currentURL(appName: String, pid: pid_t) -> String? {
-        if chromiumApps.contains(appName) {
+        let lower = appName.lowercased()
+        if chromiumApps.contains(lower) {
             return chromiumURL(appName: appName)
-        } else if appName == "Safari" || appName == "Safari Technology Preview" {
+        } else if safariApps.contains(lower) {
             return safariURL()
-        } else if firefoxApps.contains(appName) {
+        } else if firefoxApps.contains(lower) {
             return accessibilityURL(pid: pid)
         } else {
-            // Unknown browser — try accessibility as fallback
             return accessibilityURL(pid: pid)
         }
     }

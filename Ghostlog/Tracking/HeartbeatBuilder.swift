@@ -6,10 +6,11 @@ final class HeartbeatBuilder {
     private let gitTracker     = GitTracker()
     private let browserTracker = BrowserURLTracker()
 
+    // Lowercase for case-insensitive matching
     private let browserApps: Set<String> = [
-        "Google Chrome", "Firefox", "Firefox Developer Edition", "Firefox Nightly",
-        "Safari", "Safari Technology Preview", "Arc", "Brave Browser",
-        "Zen Browser", "Zen", "Microsoft Edge", "Chromium", "Vivaldi", "Opera",
+        "google chrome", "firefox", "firefox developer edition", "firefox nightly",
+        "safari", "safari technology preview", "arc", "brave browser",
+        "zen browser", "zen", "microsoft edge", "chromium", "vivaldi", "opera",
     ]
 
     /// Returns nil when idle — caller should skip sending.
@@ -31,7 +32,7 @@ final class HeartbeatBuilder {
             gitBranch = gitTracker.gitBranch(at: path)
         }
 
-        let browserUrl = browserApps.contains(window.appName)
+        let browserUrl = browserApps.contains(window.appName.lowercased())
             ? browserTracker.currentURL(appName: window.appName, pid: window.pid)
             : nil
 

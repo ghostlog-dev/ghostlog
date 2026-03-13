@@ -41,7 +41,11 @@ final class TrackingScheduler {
 #if DEBUG
         print("[Scheduler] tick — building heartbeat")
 #endif
-        guard let heartbeat = builder.build(searchRoots: searchRoots, idleThreshold: idleThreshold) else {
+        // Run off main thread: browser URL detection (osascript / AXUIElement) blocks otherwise
+        let heartbeat = await Task.detached(priority: .utility) { [builder] in
+            builder.build(searchRoots: searchRoots, idleThreshold: idleThreshold)
+        }.value
+        guard let heartbeat else {
 #if DEBUG
             print("[Scheduler] heartbeat=nil (idle or no active window)")
 #endif
