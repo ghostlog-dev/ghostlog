@@ -1,12 +1,15 @@
 import Foundation
 
 final class HeartbeatBuilder {
-    private let windowTracker = WindowTracker()
-    private let idleTracker   = IdleTracker()
-    private let gitTracker    = GitTracker()
+    private let windowTracker  = WindowTracker()
+    private let idleTracker    = IdleTracker()
+    private let gitTracker     = GitTracker()
+    private let browserTracker = BrowserURLTracker()
 
     private let browserApps: Set<String> = [
-        "Google Chrome", "Firefox", "Safari", "Arc", "Brave Browser", "Zen Browser", "Zen",
+        "Google Chrome", "Firefox", "Firefox Developer Edition", "Firefox Nightly",
+        "Safari", "Safari Technology Preview", "Arc", "Brave Browser",
+        "Zen Browser", "Zen", "Microsoft Edge", "Chromium", "Vivaldi", "Opera",
     ]
 
     /// Returns nil when idle — caller should skip sending.
@@ -28,7 +31,9 @@ final class HeartbeatBuilder {
             gitBranch = gitTracker.gitBranch(at: path)
         }
 
-        let browserUrl = browserApps.contains(window.appName) ? window.windowTitle : nil
+        let browserUrl = browserApps.contains(window.appName)
+            ? browserTracker.currentURL(appName: window.appName, pid: window.pid)
+            : nil
 
         return Heartbeat(
             recordedAt: ISO8601DateFormatter().string(from: Date()),

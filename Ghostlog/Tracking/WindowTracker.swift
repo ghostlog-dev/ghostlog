@@ -4,6 +4,7 @@ import AppKit
 struct WindowInfo {
     let appName: String
     let windowTitle: String
+    let pid: pid_t
 }
 
 final class WindowTracker {
@@ -30,7 +31,7 @@ final class WindowTracker {
 
             let appName = window[kCGWindowOwnerName as String] as? String ?? ""
             let title   = window[kCGWindowName as String] as? String ?? ""
-            return WindowInfo(appName: appName, windowTitle: title)
+            return WindowInfo(appName: appName, windowTitle: title, pid: pid)
         }
         return nil
     }

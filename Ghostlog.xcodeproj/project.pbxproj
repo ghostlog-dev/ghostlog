@@ -20,6 +20,7 @@
 		2CF79E8312388AA830E8ED67 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752F71C271B9010A74328490 /* APIClient.swift */; };
 		2E492EAF9FE9C1674086B0EE /* Heartbeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53B323AE84D2B8C3D8BE573 /* Heartbeat.swift */; };
 		2EDD47B3BF676D39D56E369B /* TrackingScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC4DD8E6F8726085CBF53B7 /* TrackingScheduler.swift */; };
+		318FB1C52AF9794898296D63 /* BrowserURLTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65FE4914672AD3EDE17EF19 /* BrowserURLTracker.swift */; };
 		3E7D4D117F01FB50B7DC08BF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7B8D16CC44095D48C5286 /* AuthService.swift */; };
 		3F116BA842555230A171EB26 /* RulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D61D2266121859CA21C7B8 /* RulesView.swift */; };
 		3F2813B3B06CBFABBCB8A996 /* IdleTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D0F6CEEEE04B8627863B03 /* IdleTracker.swift */; };
@@ -102,6 +103,7 @@
 		CFD66DAA30CF32B14A51CEB0 /* GitTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitTrackerTests.swift; sourceTree = "<group>"; };
 		D1998CEF62AB0B85B4C83900 /* GhostlogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhostlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D266EAB8FA1DD2C74E73AA20 /* Ghostlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ghostlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D65FE4914672AD3EDE17EF19 /* BrowserURLTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserURLTracker.swift; sourceTree = "<group>"; };
 		D69DEADA807B78DF46F72D47 /* IdeProjectExtractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeProjectExtractorTests.swift; sourceTree = "<group>"; };
 		DC9DDF811F24D89792731DD3 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
 		DDCE2E9CB890E5D3479880E8 /* ReportsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsService.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 		E5AE946FD2D38B8E8FD87E12 /* Tracking */ = {
 			isa = PBXGroup;
 			children = (
+				D65FE4914672AD3EDE17EF19 /* BrowserURLTracker.swift */,
 				598A818A545A09A9922FEED0 /* DayStore.swift */,
 				338E080CDDDD13DF17D4D6D6 /* GitTracker.swift */,
 				1CD076EB0AEBC15A9D861D60 /* HeartbeatBuilder.swift */,
@@ -400,6 +403,7 @@
 				0905AE849ADDA0351A4F9BAD /* AppCoordinatorStub.swift in Sources */,
 				EF867971EF6CCB30F743A5A2 /* AppState.swift in Sources */,
 				3E7D4D117F01FB50B7DC08BF /* AuthService.swift in Sources */,
+				318FB1C52AF9794898296D63 /* BrowserURLTracker.swift in Sources */,
 				E271E9CD67F435338F8257A2 /* Config.swift in Sources */,
 				A96AE522BA3F0AF0E2A6CA73 /* DayStore.swift in Sources */,
 				B8043A376FD8F1301E33EFCE /* GhostlogApp.swift in Sources */,

@@ -16,12 +16,6 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
-	<key>CFBundleVersion</key>
-	<string>1</string>
-	<key>NSHumanReadableCopyright</key>
-	<string></string>
-	<key>NSScreenCaptureUsageDescription</key>
-	<string>Ghostlog needs screen recording to detect which project you're working on.</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -33,5 +27,15 @@
 			</array>
 		</dict>
 	</array>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>NSAccessibilityUsageDescription</key>
+	<string>Ghostlog reads the active browser URL (Firefox/Zen) to track which project you're working on.</string>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>Ghostlog reads the active browser URL to track which project you're working on.</string>
+	<key>NSHumanReadableCopyright</key>
+	<string></string>
+	<key>NSScreenCaptureUsageDescription</key>
+	<string>Ghostlog needs screen recording to detect which project you're working on.</string>
 </dict>
 </plist>
