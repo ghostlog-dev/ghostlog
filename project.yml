@@ -16,6 +16,8 @@ targets:
     info:
       path: Ghostlog/Info.plist
       properties:
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         NSScreenCaptureUsageDescription: "Ghostlog needs screen recording to detect which project you're working on."
         NSAppleEventsUsageDescription: "Ghostlog reads the active browser URL to track which project you're working on."
         NSAccessibilityUsageDescription: "Ghostlog reads the active browser URL (Firefox/Zen) to track which project you're working on."
