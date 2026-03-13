@@ -156,6 +156,16 @@ struct SettingsView: View {
                     }
                 }
                 .padding(.vertical, 8)
+
+                // MARK: Versie
+
+                if let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
+                    Text("Ghostlog \(version)")
+                        .font(.caption)
+                        .foregroundStyle(.tertiary)
+                        .frame(maxWidth: .infinity)
+                        .padding(.bottom, 12)
+                }
             }
         }
         .onAppear { loadCurrentValues() }

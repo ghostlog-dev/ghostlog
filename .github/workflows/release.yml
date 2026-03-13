@@ -20,11 +20,15 @@ jobs:
 
       - name: Build Ghostlog.app
         run: |
+          VERSION_NUM=${{ github.ref_name }}
+          VERSION_NUM=${VERSION_NUM#v}
           xcodebuild \
             -project Ghostlog.xcodeproj \
             -scheme Ghostlog \
             -configuration Release \
             -derivedDataPath /tmp/ghostlog-build \
+            MARKETING_VERSION="${VERSION_NUM}" \
+            CURRENT_PROJECT_VERSION="${GITHUB_RUN_NUMBER}" \
             build
 
       - name: Create DMG
