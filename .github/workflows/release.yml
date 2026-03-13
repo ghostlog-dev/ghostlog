@@ -11,6 +11,10 @@ jobs:
     permissions:
       contents: write
 
+    outputs:
+      sha256: ${{ steps.sha.outputs.sha256 }}
+      version: ${{ github.ref_name }}
+
     steps:
       - uses: actions/checkout@v4
 
@@ -28,7 +32,6 @@ jobs:
           APP=/tmp/ghostlog-build/Build/Products/Release/Ghostlog.app
           DMG=Ghostlog-${{ github.ref_name }}.dmg
 
-          # Create a writable temp image
           hdiutil create \
             -volname "Ghostlog" \
             -srcfolder "$APP" \
@@ -38,9 +41,11 @@ jobs:
           echo "DMG=$DMG" >> $GITHUB_ENV
 
       - name: Compute SHA256
+        id: sha
         run: |
           SHA=$(shasum -a 256 "$DMG" | awk '{print $1}')
           echo "SHA256=$SHA" >> $GITHUB_ENV
+          echo "sha256=$SHA" >> $GITHUB_OUTPUT
           echo "SHA256: $SHA"
 
       - name: Create GitHub Release
@@ -52,6 +57,7 @@ jobs:
 
             ### Install via Homebrew
             ```
+            brew tap ghostlog-dev/tap
             brew install ghostlog-dev/tap/ghostlog
             ```
 
@@ -60,3 +66,32 @@ jobs:
 
             ---
             **SHA256:** `${{ env.SHA256 }}`
+
+  update-tap:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout homebrew-tap
+        uses: actions/checkout@v4
+        with:
+          repository: ghostlog-dev/homebrew-tap
+          token: ${{ secrets.HOMEBREW_TAP_TOKEN }}
+
+      - name: Update Cask formula
+        run: |
+          VERSION=${{ needs.build.outputs.version }}
+          SHA256=${{ needs.build.outputs.sha256 }}
+          # Strip leading 'v' for the version field
+          VERSION_NUM=${VERSION#v}
+
+          sed -i "s/version \".*\"/version \"${VERSION_NUM}\"/" Casks/ghostlog.rb
+          sed -i "s/sha256 \".*\"/sha256 \"${SHA256}\"/" Casks/ghostlog.rb
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Casks/ghostlog.rb
+          git commit -m "chore: update ghostlog to ${{ needs.build.outputs.version }}"
+          git push
