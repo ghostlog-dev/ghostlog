@@ -7,6 +7,7 @@ enum GhostlogURLs {
 
 struct GhostlogConfig: Codable {
     var searchRoots: [String]?
+    var hideDockIcon: Bool?
 
     var effectiveSearchRoots: [String] {
         if let roots = searchRoots, !roots.isEmpty { return roots }

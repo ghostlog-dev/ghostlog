@@ -7,6 +7,7 @@ struct SettingsView: View {
     @State private var searchRoots: [String] = Config.shared.load()?.effectiveSearchRoots ?? []
     @State private var hookInstalled: Bool = false
     @State private var loginItemEnabled: Bool = false
+    @State private var hideDockIcon: Bool = false
     @State private var saved: Bool = false
 
     private let hookManager = GitHookManager()
@@ -126,6 +127,8 @@ struct SettingsView: View {
 
                     SettingsDivider()
 
+                    SettingsDivider()
+
                     SettingsRow {
                         Toggle("Starten bij inloggen", isOn: $loginItemEnabled)
                             .onChange(of: loginItemEnabled) { enabled in
@@ -134,6 +137,21 @@ struct SettingsView: View {
                                 } else {
                                     try? SMAppService.mainApp.unregister()
                                 }
+                            }
+                    }
+
+                    // MARK: Uiterlijk
+
+                    SettingsSectionHeader("Uiterlijk").padding(.top, 20)
+
+                    SettingsRow {
+                        Toggle("Verberg Dock-icoon", isOn: $hideDockIcon)
+                            .onChange(of: hideDockIcon) { hide in
+                                NSApp.setActivationPolicy(hide ? .accessory : .regular)
+                                if !hide { NSApp.activate(ignoringOtherApps: true) }
+                                var config = Config.shared.load() ?? GhostlogConfig()
+                                config.hideDockIcon = hide
+                                try? Config.shared.save(config)
                             }
                     }
                 }
@@ -157,6 +175,7 @@ struct SettingsView: View {
         }
         hookInstalled    = hookManager.isInstalled
         loginItemEnabled = SMAppService.mainApp.status == .enabled
+        hideDockIcon     = Config.shared.load()?.hideDockIcon ?? false
     }
 
     private func save() {

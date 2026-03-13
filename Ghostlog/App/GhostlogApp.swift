@@ -2,6 +2,12 @@ import SwiftUI
 import AppKit
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        if Config.shared.load()?.hideDockIcon == true {
+            NSApp.setActivationPolicy(.accessory)
+        }
+    }
+
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows: Bool) -> Bool {
         WindowManager.shared.open()
         return true
