@@ -1,0 +1,680 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0114984C6114697E9A37B8C2 /* GitTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD66DAA30CF32B14A51CEB0 /* GitTrackerTests.swift */; };
+		0349A75DA74FE3C2CD0D1002 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DDF811F24D89792731DD3 /* ConfigTests.swift */; };
+		0905AE849ADDA0351A4F9BAD /* AppCoordinatorStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602E1FE33A74643B184C53F7 /* AppCoordinatorStub.swift */; };
+		0F960F63765A8054CC7C4ED4 /* ReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E5430CF2628A5665D4F9BA /* ReportsView.swift */; };
+		10E0E8708C53439641EF933A /* GitTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338E080CDDDD13DF17D4D6D6 /* GitTracker.swift */; };
+		124A591D4E52AB69FDE530B3 /* RulesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F7CE9226269C4615648FF3 /* RulesService.swift */; };
+		14402C62B94CB0EC7FC565F2 /* OfflineBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103A2228FA8E022301DF5B6A /* OfflineBufferTests.swift */; };
+		2760F8ADD45E0779EC487BFA /* WindowTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA4F9073BB1AF6D8565B769 /* WindowTracker.swift */; };
+		2A05746BF17069BA3D2EDACB /* TodayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A1125A3E6A1AC8EA6789B /* TodayService.swift */; };
+		2BEECCA9A270C9AD27807EC2 /* ProjectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C2A768A0AFD8E4597E69E4 /* ProjectsService.swift */; };
+		2CF79E8312388AA830E8ED67 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752F71C271B9010A74328490 /* APIClient.swift */; };
+		2E492EAF9FE9C1674086B0EE /* Heartbeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53B323AE84D2B8C3D8BE573 /* Heartbeat.swift */; };
+		2EDD47B3BF676D39D56E369B /* TrackingScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC4DD8E6F8726085CBF53B7 /* TrackingScheduler.swift */; };
+		3E7D4D117F01FB50B7DC08BF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7B8D16CC44095D48C5286 /* AuthService.swift */; };
+		3F116BA842555230A171EB26 /* RulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D61D2266121859CA21C7B8 /* RulesView.swift */; };
+		3F2813B3B06CBFABBCB8A996 /* IdleTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D0F6CEEEE04B8627863B03 /* IdleTracker.swift */; };
+		47891849375662780972376B /* HeartbeatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF66C8AEE3373A7CA98ABA /* HeartbeatService.swift */; };
+		4CE777C04DBB42ABFD91CBDE /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FE47017C9124639F98F3BD /* MenuBarView.swift */; };
+		5AA43AA6185F5A87CC28AD3A /* OfflineBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7427A1E72033CA042ACAD7 /* OfflineBuffer.swift */; };
+		5E6481A18BA2ABB51BBBA6CB /* HeartbeatBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD076EB0AEBC15A9D861D60 /* HeartbeatBuilder.swift */; };
+		6373844AA1E8324FE7035381 /* ReportsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE2E9CB890E5D3479880E8 /* ReportsService.swift */; };
+		66BE7883BFE9606156F0389E /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90193CA9099FF54C4096CEEA /* TeamView.swift */; };
+		678E6D203FC116FC7459A4AF /* IdeProjectExtractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69DEADA807B78DF46F72D47 /* IdeProjectExtractorTests.swift */; };
+		68D38019A449EBAF061FAA06 /* HeartbeatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D12307A892F981593AF36A /* HeartbeatTests.swift */; };
+		6D4B2735B5CA13EEA790BB1A /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B93748F03334F5B12743467 /* KeychainHelper.swift */; };
+		7413B03FDF5F483F67284E0B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B74DC6F66AD387783BE98D /* AppCoordinator.swift */; };
+		814D0CA81F89901E65D957E0 /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEC96F08662A86A59342EE6 /* UserState.swift */; };
+		91D12D21A39105C887829DFB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9EB2F25E8375D7E6434EBB /* SettingsView.swift */; };
+		9D277B0226B444DEDF3B83AB /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414D5E81C394282B1396A906 /* OnboardingView.swift */; };
+		A00CB1ED5F2EB794B5A8B5C7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7F482A08550D4485CEEEDF /* MainView.swift */; };
+		A1A78EE28EC78000B8827062 /* MenuBarLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBDE966E0FC00E7E3B34E36 /* MenuBarLabel.swift */; };
+		A1AAC907E8F2D589EDAACEAE /* MenuBarRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926635971C9D192534BE1875 /* MenuBarRootView.swift */; };
+		A205D9EDF423EC4E584774A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE9D6D9BD6F8625523E4168D /* Assets.xcassets */; };
+		A8FDCB45AE906E644BF42C4F /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4DC672E7DC63FF506E8C49 /* WindowManager.swift */; };
+		A967C9AA421B2F4FBD49FB12 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785FF00789AB9ADBB1D3C43B /* ProjectsView.swift */; };
+		A96AE522BA3F0AF0E2A6CA73 /* DayStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A818A545A09A9922FEED0 /* DayStore.swift */; };
+		B8043A376FD8F1301E33EFCE /* GhostlogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7AE8EFCCE2417ED33E465 /* GhostlogApp.swift */; };
+		B8D75DF49ECC513CA57E9F2A /* GitHookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08295E799EC8A9BAB30FC899 /* GitHookManager.swift */; };
+		BB0D7F7FDD3C46CC58DDBCF7 /* GitHookManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5238A6E77F16B06CDAB527B4 /* GitHookManagerTests.swift */; };
+		C8852751976235EAC4B4F626 /* IdeProjectExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DAE47E3BDA46C8DA6927B8 /* IdeProjectExtractor.swift */; };
+		D958F9EE1F2313AB557C7127 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A058E353448E6BC13A112D53 /* TodayView.swift */; };
+		E271E9CD67F435338F8257A2 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDEFEF64109195945581DF3 /* Config.swift */; };
+		EF867971EF6CCB30F743A5A2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4351ADF8D0CA9CC11A6621 /* AppState.swift */; };
+		F2FD152E9BAD413FCAA04306 /* GhostlogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7AC484385E9C9054C16A41 /* GhostlogTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3B88F189F09DA1A4DB33F81E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4797CB64FC5203A672F2F62 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7178B996112CCE7F87482762;
+			remoteInfo = Ghostlog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08295E799EC8A9BAB30FC899 /* GitHookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHookManager.swift; sourceTree = "<group>"; };
+		09D61D2266121859CA21C7B8 /* RulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesView.swift; sourceTree = "<group>"; };
+		0BEC96F08662A86A59342EE6 /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
+		0F4351ADF8D0CA9CC11A6621 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		103A2228FA8E022301DF5B6A /* OfflineBufferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineBufferTests.swift; sourceTree = "<group>"; };
+		10F7CE9226269C4615648FF3 /* RulesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesService.swift; sourceTree = "<group>"; };
+		1CD076EB0AEBC15A9D861D60 /* HeartbeatBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartbeatBuilder.swift; sourceTree = "<group>"; };
+		24D12307A892F981593AF36A /* HeartbeatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartbeatTests.swift; sourceTree = "<group>"; };
+		301A1125A3E6A1AC8EA6789B /* TodayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayService.swift; sourceTree = "<group>"; };
+		338E080CDDDD13DF17D4D6D6 /* GitTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitTracker.swift; sourceTree = "<group>"; };
+		3B93748F03334F5B12743467 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		3D7F482A08550D4485CEEEDF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		3DDEFEF64109195945581DF3 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		414D5E81C394282B1396A906 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		459270176DC49434034C4CB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4FEF66C8AEE3373A7CA98ABA /* HeartbeatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartbeatService.swift; sourceTree = "<group>"; };
+		5238A6E77F16B06CDAB527B4 /* GitHookManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHookManagerTests.swift; sourceTree = "<group>"; };
+		598A818A545A09A9922FEED0 /* DayStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStore.swift; sourceTree = "<group>"; };
+		602E1FE33A74643B184C53F7 /* AppCoordinatorStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorStub.swift; sourceTree = "<group>"; };
+		66D0F6CEEEE04B8627863B03 /* IdleTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleTracker.swift; sourceTree = "<group>"; };
+		6AA4F9073BB1AF6D8565B769 /* WindowTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTracker.swift; sourceTree = "<group>"; };
+		6FBDE966E0FC00E7E3B34E36 /* MenuBarLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarLabel.swift; sourceTree = "<group>"; };
+		752F71C271B9010A74328490 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		785FF00789AB9ADBB1D3C43B /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
+		7FE7AE8EFCCE2417ED33E465 /* GhostlogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostlogApp.swift; sourceTree = "<group>"; };
+		90193CA9099FF54C4096CEEA /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
+		926635971C9D192534BE1875 /* MenuBarRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarRootView.swift; sourceTree = "<group>"; };
+		9D7427A1E72033CA042ACAD7 /* OfflineBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineBuffer.swift; sourceTree = "<group>"; };
+		A058E353448E6BC13A112D53 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		ACC4DD8E6F8726085CBF53B7 /* TrackingScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingScheduler.swift; sourceTree = "<group>"; };
+		AF7AC484385E9C9054C16A41 /* GhostlogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostlogTests.swift; sourceTree = "<group>"; };
+		B0C2A768A0AFD8E4597E69E4 /* ProjectsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsService.swift; sourceTree = "<group>"; };
+		B5B74DC6F66AD387783BE98D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		B8B7B8D16CC44095D48C5286 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		CD9EB2F25E8375D7E6434EBB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CFD66DAA30CF32B14A51CEB0 /* GitTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitTrackerTests.swift; sourceTree = "<group>"; };
+		D1998CEF62AB0B85B4C83900 /* GhostlogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhostlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D266EAB8FA1DD2C74E73AA20 /* Ghostlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ghostlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D69DEADA807B78DF46F72D47 /* IdeProjectExtractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeProjectExtractorTests.swift; sourceTree = "<group>"; };
+		DC9DDF811F24D89792731DD3 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
+		DDCE2E9CB890E5D3479880E8 /* ReportsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsService.swift; sourceTree = "<group>"; };
+		EE9D6D9BD6F8625523E4168D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F1E5430CF2628A5665D4F9BA /* ReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsView.swift; sourceTree = "<group>"; };
+		F2DAE47E3BDA46C8DA6927B8 /* IdeProjectExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeProjectExtractor.swift; sourceTree = "<group>"; };
+		F3FE47017C9124639F98F3BD /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		F53B323AE84D2B8C3D8BE573 /* Heartbeat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heartbeat.swift; sourceTree = "<group>"; };
+		FF4DC672E7DC63FF506E8C49 /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		2B19FC700666A780A9946777 /* Hooks */ = {
+			isa = PBXGroup;
+			children = (
+				5238A6E77F16B06CDAB527B4 /* GitHookManagerTests.swift */,
+			);
+			path = Hooks;
+			sourceTree = "<group>";
+		};
+		38113618247A9AEAA00A9740 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				DC9DDF811F24D89792731DD3 /* ConfigTests.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		390B915F73ED28001DE486C3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				24D12307A892F981593AF36A /* HeartbeatTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3FB6FF09306DDE3BF90FB2EA /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				CFD66DAA30CF32B14A51CEB0 /* GitTrackerTests.swift */,
+				D69DEADA807B78DF46F72D47 /* IdeProjectExtractorTests.swift */,
+			);
+			path = Tracking;
+			sourceTree = "<group>";
+		};
+		3FEF6D9882CD41B9C5239C9D = {
+			isa = PBXGroup;
+			children = (
+				6C7EB8982935AFA43C5F1193 /* Ghostlog */,
+				E83A5571AEBA94C84D134D73 /* GhostlogTests */,
+				95AAF21A832EFCED9DE059B0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6C7EB8982935AFA43C5F1193 /* Ghostlog */ = {
+			isa = PBXGroup;
+			children = (
+				EE9D6D9BD6F8625523E4168D /* Assets.xcassets */,
+				459270176DC49434034C4CB9 /* Info.plist */,
+				D5D75FC512829E7740A546E7 /* App */,
+				B108CBE906420D7F6046E804 /* Config */,
+				AF3754C0A18BFFD12DDB15E2 /* Hooks */,
+				866CDCC9ED08FFE96A043C93 /* Models */,
+				73CA25931F05CACCFF8C3F83 /* Networking */,
+				AF645CFC27A744C5AC41658B /* Security */,
+				E5AE946FD2D38B8E8FD87E12 /* Tracking */,
+				A65336CB24F1F391D0BC0C68 /* UI */,
+			);
+			path = Ghostlog;
+			sourceTree = "<group>";
+		};
+		73CA25931F05CACCFF8C3F83 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				752F71C271B9010A74328490 /* APIClient.swift */,
+				B8B7B8D16CC44095D48C5286 /* AuthService.swift */,
+				4FEF66C8AEE3373A7CA98ABA /* HeartbeatService.swift */,
+				9D7427A1E72033CA042ACAD7 /* OfflineBuffer.swift */,
+				B0C2A768A0AFD8E4597E69E4 /* ProjectsService.swift */,
+				DDCE2E9CB890E5D3479880E8 /* ReportsService.swift */,
+				10F7CE9226269C4615648FF3 /* RulesService.swift */,
+				301A1125A3E6A1AC8EA6789B /* TodayService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		7F848261F1405CE74E3590FD /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				103A2228FA8E022301DF5B6A /* OfflineBufferTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		866CDCC9ED08FFE96A043C93 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F53B323AE84D2B8C3D8BE573 /* Heartbeat.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		95AAF21A832EFCED9DE059B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D266EAB8FA1DD2C74E73AA20 /* Ghostlog.app */,
+				D1998CEF62AB0B85B4C83900 /* GhostlogTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A65336CB24F1F391D0BC0C68 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3D7F482A08550D4485CEEEDF /* MainView.swift */,
+				6FBDE966E0FC00E7E3B34E36 /* MenuBarLabel.swift */,
+				926635971C9D192534BE1875 /* MenuBarRootView.swift */,
+				F3FE47017C9124639F98F3BD /* MenuBarView.swift */,
+				414D5E81C394282B1396A906 /* OnboardingView.swift */,
+				785FF00789AB9ADBB1D3C43B /* ProjectsView.swift */,
+				F1E5430CF2628A5665D4F9BA /* ReportsView.swift */,
+				09D61D2266121859CA21C7B8 /* RulesView.swift */,
+				CD9EB2F25E8375D7E6434EBB /* SettingsView.swift */,
+				90193CA9099FF54C4096CEEA /* TeamView.swift */,
+				A058E353448E6BC13A112D53 /* TodayView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		AF3754C0A18BFFD12DDB15E2 /* Hooks */ = {
+			isa = PBXGroup;
+			children = (
+				08295E799EC8A9BAB30FC899 /* GitHookManager.swift */,
+			);
+			path = Hooks;
+			sourceTree = "<group>";
+		};
+		AF645CFC27A744C5AC41658B /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				3B93748F03334F5B12743467 /* KeychainHelper.swift */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		B108CBE906420D7F6046E804 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				3DDEFEF64109195945581DF3 /* Config.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		D5D75FC512829E7740A546E7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B5B74DC6F66AD387783BE98D /* AppCoordinator.swift */,
+				602E1FE33A74643B184C53F7 /* AppCoordinatorStub.swift */,
+				0F4351ADF8D0CA9CC11A6621 /* AppState.swift */,
+				7FE7AE8EFCCE2417ED33E465 /* GhostlogApp.swift */,
+				0BEC96F08662A86A59342EE6 /* UserState.swift */,
+				FF4DC672E7DC63FF506E8C49 /* WindowManager.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E5AE946FD2D38B8E8FD87E12 /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				598A818A545A09A9922FEED0 /* DayStore.swift */,
+				338E080CDDDD13DF17D4D6D6 /* GitTracker.swift */,
+				1CD076EB0AEBC15A9D861D60 /* HeartbeatBuilder.swift */,
+				F2DAE47E3BDA46C8DA6927B8 /* IdeProjectExtractor.swift */,
+				66D0F6CEEEE04B8627863B03 /* IdleTracker.swift */,
+				ACC4DD8E6F8726085CBF53B7 /* TrackingScheduler.swift */,
+				6AA4F9073BB1AF6D8565B769 /* WindowTracker.swift */,
+			);
+			path = Tracking;
+			sourceTree = "<group>";
+		};
+		E83A5571AEBA94C84D134D73 /* GhostlogTests */ = {
+			isa = PBXGroup;
+			children = (
+				AF7AC484385E9C9054C16A41 /* GhostlogTests.swift */,
+				38113618247A9AEAA00A9740 /* Config */,
+				2B19FC700666A780A9946777 /* Hooks */,
+				390B915F73ED28001DE486C3 /* Models */,
+				7F848261F1405CE74E3590FD /* Networking */,
+				3FB6FF09306DDE3BF90FB2EA /* Tracking */,
+			);
+			path = GhostlogTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2CFBE11DB95AE332AFD25CA4 /* GhostlogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4EC670B14BD46E281E106B9E /* Build configuration list for PBXNativeTarget "GhostlogTests" */;
+			buildPhases = (
+				B14AB37BD57BEC070C6C93F4 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				26E4613813E37C1B8C8A8FDE /* PBXTargetDependency */,
+			);
+			name = GhostlogTests;
+			packageProductDependencies = (
+			);
+			productName = GhostlogTests;
+			productReference = D1998CEF62AB0B85B4C83900 /* GhostlogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7178B996112CCE7F87482762 /* Ghostlog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6804B75FA230D155044964AF /* Build configuration list for PBXNativeTarget "Ghostlog" */;
+			buildPhases = (
+				C2E541936C4BD881047B42BD /* Sources */,
+				EEC715A45BA574B32310DF75 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Ghostlog;
+			packageProductDependencies = (
+			);
+			productName = Ghostlog;
+			productReference = D266EAB8FA1DD2C74E73AA20 /* Ghostlog.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B4797CB64FC5203A672F2F62 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 15662DAE4738DDAC762AF6F3 /* Build configuration list for PBXProject "Ghostlog" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 3FEF6D9882CD41B9C5239C9D;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 95AAF21A832EFCED9DE059B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7178B996112CCE7F87482762 /* Ghostlog */,
+				2CFBE11DB95AE332AFD25CA4 /* GhostlogTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EEC715A45BA574B32310DF75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A205D9EDF423EC4E584774A6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B14AB37BD57BEC070C6C93F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0349A75DA74FE3C2CD0D1002 /* ConfigTests.swift in Sources */,
+				F2FD152E9BAD413FCAA04306 /* GhostlogTests.swift in Sources */,
+				BB0D7F7FDD3C46CC58DDBCF7 /* GitHookManagerTests.swift in Sources */,
+				0114984C6114697E9A37B8C2 /* GitTrackerTests.swift in Sources */,
+				68D38019A449EBAF061FAA06 /* HeartbeatTests.swift in Sources */,
+				678E6D203FC116FC7459A4AF /* IdeProjectExtractorTests.swift in Sources */,
+				14402C62B94CB0EC7FC565F2 /* OfflineBufferTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2E541936C4BD881047B42BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CF79E8312388AA830E8ED67 /* APIClient.swift in Sources */,
+				7413B03FDF5F483F67284E0B /* AppCoordinator.swift in Sources */,
+				0905AE849ADDA0351A4F9BAD /* AppCoordinatorStub.swift in Sources */,
+				EF867971EF6CCB30F743A5A2 /* AppState.swift in Sources */,
+				3E7D4D117F01FB50B7DC08BF /* AuthService.swift in Sources */,
+				E271E9CD67F435338F8257A2 /* Config.swift in Sources */,
+				A96AE522BA3F0AF0E2A6CA73 /* DayStore.swift in Sources */,
+				B8043A376FD8F1301E33EFCE /* GhostlogApp.swift in Sources */,
+				B8D75DF49ECC513CA57E9F2A /* GitHookManager.swift in Sources */,
+				10E0E8708C53439641EF933A /* GitTracker.swift in Sources */,
+				2E492EAF9FE9C1674086B0EE /* Heartbeat.swift in Sources */,
+				5E6481A18BA2ABB51BBBA6CB /* HeartbeatBuilder.swift in Sources */,
+				47891849375662780972376B /* HeartbeatService.swift in Sources */,
+				C8852751976235EAC4B4F626 /* IdeProjectExtractor.swift in Sources */,
+				3F2813B3B06CBFABBCB8A996 /* IdleTracker.swift in Sources */,
+				6D4B2735B5CA13EEA790BB1A /* KeychainHelper.swift in Sources */,
+				A00CB1ED5F2EB794B5A8B5C7 /* MainView.swift in Sources */,
+				A1A78EE28EC78000B8827062 /* MenuBarLabel.swift in Sources */,
+				A1AAC907E8F2D589EDAACEAE /* MenuBarRootView.swift in Sources */,
+				4CE777C04DBB42ABFD91CBDE /* MenuBarView.swift in Sources */,
+				5AA43AA6185F5A87CC28AD3A /* OfflineBuffer.swift in Sources */,
+				9D277B0226B444DEDF3B83AB /* OnboardingView.swift in Sources */,
+				2BEECCA9A270C9AD27807EC2 /* ProjectsService.swift in Sources */,
+				A967C9AA421B2F4FBD49FB12 /* ProjectsView.swift in Sources */,
+				6373844AA1E8324FE7035381 /* ReportsService.swift in Sources */,
+				0F960F63765A8054CC7C4ED4 /* ReportsView.swift in Sources */,
+				124A591D4E52AB69FDE530B3 /* RulesService.swift in Sources */,
+				3F116BA842555230A171EB26 /* RulesView.swift in Sources */,
+				91D12D21A39105C887829DFB /* SettingsView.swift in Sources */,
+				66BE7883BFE9606156F0389E /* TeamView.swift in Sources */,
+				2A05746BF17069BA3D2EDACB /* TodayService.swift in Sources */,
+				D958F9EE1F2313AB557C7127 /* TodayView.swift in Sources */,
+				2EDD47B3BF676D39D56E369B /* TrackingScheduler.swift in Sources */,
+				814D0CA81F89901E65D957E0 /* UserState.swift in Sources */,
+				A8FDCB45AE906E644BF42C4F /* WindowManager.swift in Sources */,
+				2760F8ADD45E0779EC487BFA /* WindowTracker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		26E4613813E37C1B8C8A8FDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7178B996112CCE7F87482762 /* Ghostlog */;
+			targetProxy = 3B88F189F09DA1A4DB33F81E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		18D4D4D4DB631C26CACD835F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		328EB948B1BDE695ED386B6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = Ghostlog/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghostlog.app;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		610A26761BF02D8E62482D72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = Ghostlog/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghostlog.app;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		7DD71845F5526312C438DFE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D923334BF16497FDEAB3A8D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghostlog.tests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ghostlog.app/Contents/MacOS/Ghostlog";
+			};
+			name = Debug;
+		};
+		F1902CD905F0CBA9EE184F3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghostlog.tests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ghostlog.app/Contents/MacOS/Ghostlog";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		15662DAE4738DDAC762AF6F3 /* Build configuration list for PBXProject "Ghostlog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18D4D4D4DB631C26CACD835F /* Debug */,
+				7DD71845F5526312C438DFE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4EC670B14BD46E281E106B9E /* Build configuration list for PBXNativeTarget "GhostlogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D923334BF16497FDEAB3A8D7 /* Debug */,
+				F1902CD905F0CBA9EE184F3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6804B75FA230D155044964AF /* Build configuration list for PBXNativeTarget "Ghostlog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				328EB948B1BDE695ED386B6D /* Debug */,
+				610A26761BF02D8E62482D72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B4797CB64FC5203A672F2F62 /* Project object */;
+}

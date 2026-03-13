@@ -1,0 +1,62 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: macos-15
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Ghostlog.app
+        run: |
+          xcodebuild \
+            -project Ghostlog.xcodeproj \
+            -scheme Ghostlog \
+            -configuration Release \
+            -derivedDataPath /tmp/ghostlog-build \
+            build
+
+      - name: Create DMG
+        run: |
+          APP=/tmp/ghostlog-build/Build/Products/Release/Ghostlog.app
+          DMG=Ghostlog-${{ github.ref_name }}.dmg
+
+          # Create a writable temp image
+          hdiutil create \
+            -volname "Ghostlog" \
+            -srcfolder "$APP" \
+            -ov -format UDZO \
+            "$DMG"
+
+          echo "DMG=$DMG" >> $GITHUB_ENV
+
+      - name: Compute SHA256
+        run: |
+          SHA=$(shasum -a 256 "$DMG" | awk '{print $1}')
+          echo "SHA256=$SHA" >> $GITHUB_ENV
+          echo "SHA256: $SHA"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.DMG }}
+          body: |
+            ## Ghostlog ${{ github.ref_name }}
+
+            ### Install via Homebrew
+            ```
+            brew install ghostlog-dev/tap/ghostlog
+            ```
+
+            ### Manual install
+            Download the DMG, open it, and drag Ghostlog to Applications.
+
+            ---
+            **SHA256:** `${{ env.SHA256 }}`
