@@ -117,9 +117,7 @@ struct SettingsView: View {
                         Toggle("Git hook (post-commit)", isOn: $hookInstalled)
                             .onChange(of: hookInstalled) { enabled in
                                 if enabled {
-                                    if let token = Config.shared.token {
-                                        try? hookManager.install(apiUrl: GhostlogURLs.api, token: token)
-                                    }
+                                    try? hookManager.install()
                                 } else {
                                     hookManager.uninstall()
                                 }
