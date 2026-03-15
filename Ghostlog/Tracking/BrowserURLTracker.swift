@@ -141,9 +141,14 @@ final class BrowserURLTracker {
         if role == kAXTextFieldRole || role == kAXComboBoxRole {
             var valueRef: AnyObject?
             AXUIElementCopyAttributeValue(element, kAXValueAttribute as CFString, &valueRef)
-            if let value = valueRef as? String,
-               value.hasPrefix("http://") || value.hasPrefix("https://") || value.hasPrefix("about:") {
-                return value
+            if let value = valueRef as? String, !value.isEmpty {
+                if value.hasPrefix("http://") || value.hasPrefix("https://") || value.hasPrefix("about:") {
+                    return value
+                }
+                // Browsers like Zen strip the protocol — normalise to https://
+                if value.contains(".") && !value.contains(" ") {
+                    return "https://\(value)"
+                }
             }
         }
 
