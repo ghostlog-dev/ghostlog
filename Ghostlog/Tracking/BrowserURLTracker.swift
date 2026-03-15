@@ -1,5 +1,8 @@
 import ApplicationServices
 import Foundation
+import OSLog
+
+private let logger = Logger(subsystem: "com.ghostlog.app", category: "BrowserURL")
 
 final class BrowserURLTracker {
 
@@ -22,13 +25,17 @@ final class BrowserURLTracker {
     func currentURL(appName: String, pid: pid_t) -> String? {
         let lower = appName.lowercased()
         if chromiumApps.contains(lower) {
-            return chromiumURL(appName: appName)
+            let url = chromiumURL(appName: appName)
+            logger.debug("[\(appName)] AppleScript → \(url ?? "nil")")
+            return url
         } else if safariApps.contains(lower) {
-            return safariURL()
+            let url = safariURL()
+            logger.debug("[\(appName)] AppleScript → \(url ?? "nil")")
+            return url
         } else if firefoxApps.contains(lower) {
-            return accessibilityURL(pid: pid)
+            return accessibilityURL(appName: appName, pid: pid)
         } else {
-            return accessibilityURL(pid: pid)
+            return accessibilityURL(appName: appName, pid: pid)
         }
     }
 
@@ -60,16 +67,34 @@ final class BrowserURLTracker {
 
     // MARK: - Accessibility API (Firefox / Zen)
 
-    private func accessibilityURL(pid: pid_t) -> String? {
-        let app = AXUIElementCreateApplication(pid)
-        return findURLInApp(app)
-    }
+    private func accessibilityURL(appName: String, pid: pid_t) -> String? {
+        guard AXIsProcessTrusted() else {
+            logger.warning("[\(appName)] AX permission not granted — requesting prompt")
+            // Prompt the user via System Settings (same pattern as screen recording)
+            let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue(): true] as CFDictionary
+            AXIsProcessTrustedWithOptions(options)
+            Task { @MainActor in
+                DebugLog.shared.append("⚠️ browser_url: Toegankelijkheid-toestemming niet verleend\n   Systeeminstellingen → Privacy → Toegankelijkheid → zet Ghostlog aan, herstart daarna de app")
+            }
+            return nil
+        }
 
-    private func findURLInApp(_ app: AXUIElement) -> String? {
-        var ref: AnyObject?
-        guard AXUIElementCopyAttributeValue(app, kAXFocusedWindowAttribute as CFString, &ref) == .success,
-              let window = ref as! AXUIElement? else { return nil }
-        return findURLInElement(window, depth: 0)
+        let app = AXUIElementCreateApplication(pid)
+        var windowRef: AnyObject?
+        let windowResult = AXUIElementCopyAttributeValue(app, kAXFocusedWindowAttribute as CFString, &windowRef)
+
+        guard windowResult == .success, let window = windowRef as! AXUIElement? else {
+            logger.debug("[\(appName)] AX: could not get focused window (error \(windowResult.rawValue))")
+            return nil
+        }
+
+        if let url = findURLInElement(window, depth: 0) {
+            logger.debug("[\(appName)] AX → \(url)")
+            return url
+        }
+
+        logger.debug("[\(appName)] AX: no URL field found in accessibility tree")
+        return nil
     }
 
     private func findURLInElement(_ element: AXUIElement, depth: Int) -> String? {
