@@ -166,6 +166,16 @@ struct SettingsView: View {
                         Toggle("Toon heartbeat log", isOn: $showDebug)
                         Spacer()
                         if showDebug && !debugLog.entries.isEmpty {
+                            Button("Kopieer") {
+                                let text = debugLog.entries
+                                    .map { "[\($0.timeString)] \($0.text)" }
+                                    .joined(separator: "\n\n")
+                                NSPasteboard.general.clearContents()
+                                NSPasteboard.general.setString(text, forType: .string)
+                            }
+                            .buttonStyle(.plain)
+                            .foregroundStyle(.secondary)
+                            .font(.callout)
                             Button("Wis") { debugLog.clear() }
                                 .buttonStyle(.plain)
                                 .foregroundStyle(.secondary)
