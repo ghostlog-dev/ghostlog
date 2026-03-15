@@ -44,6 +44,7 @@
 		A8FDCB45AE906E644BF42C4F /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4DC672E7DC63FF506E8C49 /* WindowManager.swift */; };
 		A967C9AA421B2F4FBD49FB12 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785FF00789AB9ADBB1D3C43B /* ProjectsView.swift */; };
 		A96AE522BA3F0AF0E2A6CA73 /* DayStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A818A545A09A9922FEED0 /* DayStore.swift */; };
+		B5B75AB162B61D8D7CB80C22 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED5EE21FFDECB62AFF987B1 /* DebugLog.swift */; };
 		B8043A376FD8F1301E33EFCE /* GhostlogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7AE8EFCCE2417ED33E465 /* GhostlogApp.swift */; };
 		B8D75DF49ECC513CA57E9F2A /* GitHookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08295E799EC8A9BAB30FC899 /* GitHookManager.swift */; };
 		BB0D7F7FDD3C46CC58DDBCF7 /* GitHookManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5238A6E77F16B06CDAB527B4 /* GitHookManagerTests.swift */; };
@@ -80,6 +81,7 @@
 		3DDEFEF64109195945581DF3 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		414D5E81C394282B1396A906 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		459270176DC49434034C4CB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4ED5EE21FFDECB62AFF987B1 /* DebugLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugLog.swift; sourceTree = "<group>"; };
 		4FEF66C8AEE3373A7CA98ABA /* HeartbeatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartbeatService.swift; sourceTree = "<group>"; };
 		5238A6E77F16B06CDAB527B4 /* GitHookManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHookManagerTests.swift; sourceTree = "<group>"; };
 		598A818A545A09A9922FEED0 /* DayStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStore.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			children = (
 				D65FE4914672AD3EDE17EF19 /* BrowserURLTracker.swift */,
 				598A818A545A09A9922FEED0 /* DayStore.swift */,
+				4ED5EE21FFDECB62AFF987B1 /* DebugLog.swift */,
 				338E080CDDDD13DF17D4D6D6 /* GitTracker.swift */,
 				1CD076EB0AEBC15A9D861D60 /* HeartbeatBuilder.swift */,
 				F2DAE47E3BDA46C8DA6927B8 /* IdeProjectExtractor.swift */,
@@ -406,6 +409,7 @@
 				318FB1C52AF9794898296D63 /* BrowserURLTracker.swift in Sources */,
 				E271E9CD67F435338F8257A2 /* Config.swift in Sources */,
 				A96AE522BA3F0AF0E2A6CA73 /* DayStore.swift in Sources */,
+				B5B75AB162B61D8D7CB80C22 /* DebugLog.swift in Sources */,
 				B8043A376FD8F1301E33EFCE /* GhostlogApp.swift in Sources */,
 				B8D75DF49ECC513CA57E9F2A /* GitHookManager.swift in Sources */,
 				10E0E8708C53439641EF933A /* GitTracker.swift in Sources */,

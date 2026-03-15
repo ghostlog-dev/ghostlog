@@ -1,4 +1,7 @@
 import Foundation
+import OSLog
+
+private let logger = Logger(subsystem: "com.ghostlog.app", category: "Heartbeat")
 
 final class HeartbeatBuilder {
     private let windowTracker  = WindowTracker()
@@ -16,9 +19,15 @@ final class HeartbeatBuilder {
     /// Returns nil when idle — caller should skip sending.
     func build(searchRoots: [String], idleThreshold: Double = 300) -> Heartbeat? {
         let idle = idleTracker.idleSeconds()
-        guard idle < idleThreshold else { return nil }
+        guard idle < idleThreshold else {
+            logger.debug("⏸ idle=\(idle, format: .fixed(precision: 0))s — skipping")
+            return nil
+        }
 
-        guard let window = windowTracker.activeWindow() else { return nil }
+        guard let window = windowTracker.activeWindow() else {
+            logger.debug("⏸ no active window")
+            return nil
+        }
 
         let ideProject = IdeProjectExtractor.extract(
             windowTitle: window.windowTitle, appName: window.appName
@@ -32,9 +41,21 @@ final class HeartbeatBuilder {
             gitBranch = gitTracker.gitBranch(at: path)
         }
 
-        let browserUrl = browserApps.contains(window.appName.lowercased())
+        let isBrowser = browserApps.contains(window.appName.lowercased())
+        let browserUrl = isBrowser
             ? browserTracker.currentURL(appName: window.appName, pid: window.pid)
             : nil
+
+        let entry = """
+            app          : \(window.appName)
+            window_title : \(window.windowTitle)
+            ide_project  : \(ideProject ?? "–")
+            git_remote   : \(gitRemote ?? "–")
+            git_branch   : \(gitBranch ?? "–")
+            browser_url  : \(browserUrl ?? (isBrowser ? "⚠️ browser detected but no URL" : "–"))
+            """
+        logger.info("\(entry)")
+        Task { @MainActor in DebugLog.shared.append(entry) }
 
         return Heartbeat(
             recordedAt: ISO8601DateFormatter().string(from: Date()),

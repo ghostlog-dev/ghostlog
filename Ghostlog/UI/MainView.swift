@@ -12,11 +12,14 @@ struct MainView: View {
         HStack(spacing: 0) {
             // Sidebar
             VStack(spacing: 2) {
-                // Team header
-                if let teamName = userState.currentTeamName {
-                    TeamHeader(teamName: teamName, user: userState.user, hasMultiple: userState.hasMultipleTeams)
-                        .padding(.bottom, 4)
-                }
+                // Team header — always reserve space to prevent layout shift on load
+                TeamHeader(
+                    teamName: userState.currentTeamName ?? "",
+                    user: userState.user,
+                    hasMultiple: userState.hasMultipleTeams
+                )
+                .padding(.bottom, 12)
+                .opacity(userState.currentTeamName != nil ? 1 : 0)
 
                 SidebarButton(title: "Vandaag",      icon: "clock",        tab: .today,    current: $windowState.tab)
                 SidebarButton(title: "Rapportage",   icon: "chart.bar",    tab: .reports,  current: $windowState.tab)

@@ -3,6 +3,8 @@ import ServiceManagement
 
 struct SettingsView: View {
     @EnvironmentObject var appState: AppState
+    @ObservedObject private var debugLog = DebugLog.shared
+    @State private var showDebug = false
 
     @State private var searchRoots: [String] = Config.shared.load()?.effectiveSearchRoots ?? []
     @State private var hookInstalled: Bool = false
@@ -155,6 +157,63 @@ struct SettingsView: View {
                 }
                 .padding(.vertical, 8)
 
+                // MARK: Debug
+
+                SettingsSectionHeader("Debug").padding(.top, 20)
+
+                SettingsRow {
+                    HStack {
+                        Toggle("Toon heartbeat log", isOn: $showDebug)
+                        Spacer()
+                        if showDebug && !debugLog.entries.isEmpty {
+                            Button("Wis") { debugLog.clear() }
+                                .buttonStyle(.plain)
+                                .foregroundStyle(.secondary)
+                                .font(.callout)
+                        }
+                    }
+                }
+
+                if showDebug {
+                    ScrollViewReader { proxy in
+                        ScrollView {
+                            VStack(alignment: .leading, spacing: 6) {
+                                if debugLog.entries.isEmpty {
+                                    Text("Nog geen heartbeats ontvangen…")
+                                        .foregroundStyle(.tertiary)
+                                        .font(.caption)
+                                        .padding(12)
+                                } else {
+                                    ForEach(debugLog.entries) { entry in
+                                        VStack(alignment: .leading, spacing: 2) {
+                                            Text(entry.timeString)
+                                                .font(.system(.caption2, design: .monospaced))
+                                                .foregroundStyle(.tertiary)
+                                            Text(entry.text)
+                                                .font(.system(.caption, design: .monospaced))
+                                                .foregroundStyle(.primary)
+                                        }
+                                        .padding(.horizontal, 12)
+                                        .padding(.vertical, 6)
+                                        .id(entry.id)
+                                    }
+                                }
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                        .frame(height: 200)
+                        .background(Color(red: 12/255, green: 12/255, blue: 12/255))
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                        .padding(.horizontal, 16)
+                        .padding(.bottom, 8)
+                        .onChange(of: debugLog.entries.count) { _ in
+                            if let last = debugLog.entries.last {
+                                proxy.scrollTo(last.id, anchor: .bottom)
+                            }
+                        }
+                    }
+                }
+
                 // MARK: Versie
 
                 if let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
@@ -219,7 +278,8 @@ private struct SettingsRow<Content: View>: View {
         content
             .padding(.horizontal, 16)
             .padding(.vertical, 10)
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .contentShape(Rectangle())
             .background(Color(red: 22/255, green: 22/255, blue: 22/255))
     }
 }
