@@ -138,6 +138,16 @@ final class BrowserURLTracker {
         AXUIElementCopyAttributeValue(element, kAXRoleAttribute as CFString, &roleRef)
         let role = roleRef as? String
 
+        // AXWebArea carries the full URL including path via kAXURLAttribute
+        if role == "AXWebArea" {
+            var urlRef: AnyObject?
+            AXUIElementCopyAttributeValue(element, kAXURLAttribute as CFString, &urlRef)
+            if let url = urlRef as? NSURL ?? (urlRef as? String).flatMap({ URL(string: $0) }) as NSURL? {
+                let str = url.absoluteString ?? ""
+                if !str.isEmpty { return str }
+            }
+        }
+
         if role == kAXTextFieldRole || role == kAXComboBoxRole {
             var valueRef: AnyObject?
             AXUIElementCopyAttributeValue(element, kAXValueAttribute as CFString, &valueRef)
