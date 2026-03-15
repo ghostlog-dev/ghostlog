@@ -93,8 +93,42 @@ final class BrowserURLTracker {
             return url
         }
 
-        logger.debug("[\(appName)] AX: no URL field found in accessibility tree")
+        // URL not found — dump AX tree to debug log for diagnosis
+        logger.debug("[\(appName)] AX: no URL found, dumping tree")
+        var treeLines: [String] = ["🔍 AX tree voor \(appName):"]
+        dumpElement(window, depth: 0, lines: &treeLines, maxDepth: 6)
+        let dump = treeLines.joined(separator: "\n")
+        Task { @MainActor in DebugLog.shared.append(dump) }
         return nil
+    }
+
+    private func dumpElement(_ element: AXUIElement, depth: Int, lines: inout [String], maxDepth: Int) {
+        guard depth < maxDepth else { return }
+        let indent = String(repeating: "  ", count: depth)
+
+        var roleRef: AnyObject?
+        AXUIElementCopyAttributeValue(element, kAXRoleAttribute as CFString, &roleRef)
+        let role = (roleRef as? String) ?? "?"
+
+        var valueRef: AnyObject?
+        AXUIElementCopyAttributeValue(element, kAXValueAttribute as CFString, &valueRef)
+        let value = (valueRef as? String).map { v in v.count > 80 ? String(v.prefix(80)) + "…" : v }
+
+        var descRef: AnyObject?
+        AXUIElementCopyAttributeValue(element, kAXDescriptionAttribute as CFString, &descRef)
+        let desc = descRef as? String
+
+        var line = "\(indent)[\(role)]"
+        if let v = value, !v.isEmpty { line += " value=\(v)" }
+        if let d = desc, !d.isEmpty { line += " desc=\(d)" }
+        lines.append(line)
+
+        var childrenRef: AnyObject?
+        guard AXUIElementCopyAttributeValue(element, kAXChildrenAttribute as CFString, &childrenRef) == .success,
+              let children = childrenRef as? [AXUIElement] else { return }
+        for child in children {
+            dumpElement(child, depth: depth + 1, lines: &lines, maxDepth: maxDepth)
+        }
     }
 
     private func findURLInElement(_ element: AXUIElement, depth: Int) -> String? {
