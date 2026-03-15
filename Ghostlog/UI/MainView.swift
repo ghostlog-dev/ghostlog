@@ -15,8 +15,7 @@ struct MainView: View {
                 // Team header
                 if let teamName = userState.currentTeamName {
                     TeamHeader(teamName: teamName, user: userState.user, hasMultiple: userState.hasMultipleTeams)
-                        .padding(.horizontal, 8)
-                        .padding(.bottom, 6)
+                        .padding(.bottom, 4)
                 }
 
                 SidebarButton(title: "Vandaag",      icon: "clock",        tab: .today,    current: $windowState.tab)

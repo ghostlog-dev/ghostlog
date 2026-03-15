@@ -127,8 +127,6 @@ struct SettingsView: View {
 
                     SettingsDivider()
 
-                    SettingsDivider()
-
                     SettingsRow {
                         Toggle("Starten bij inloggen", isOn: $loginItemEnabled)
                             .onChange(of: loginItemEnabled) { enabled in
@@ -221,7 +219,7 @@ private struct SettingsRow<Content: View>: View {
         content
             .padding(.horizontal, 16)
             .padding(.vertical, 10)
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxWidth: .infinity)
             .background(Color(red: 22/255, green: 22/255, blue: 22/255))
     }
 }
